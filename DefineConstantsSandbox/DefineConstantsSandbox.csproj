@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
+  <!-- デバッグ構成 -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <!-- ここでシステム用のシンボルとDEBUG構成であることを示すシンボルを定義 -->
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;</DefineConstants>
+    <OutputPath>..\HOGEHOGE\bin</OutputPath>
+  </PropertyGroup>
+  <!-- リリース構成 -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <!-- ここでシステム用のシンボルとRELEASE構成であることを示すシンボルを定義 -->
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1;</DefineConstants>
+    <OutputPath>..\FUGAFUGA\bin</OutputPath>
+  </PropertyGroup>
+  
+  <!-- コンパイラから受け取る情報でシンボルを追加 -->
+  <!-- ※PropertyGroupは上のものがきちんと引き継がれる (パスの設定が正しく動作するため） -->
+  <PropertyGroup Condition="'$(DevNum)'=='1' Or '$(DevNum)'=='2'">
+    <!-- DETECTEDシンボルを追加 -->
+    <DefineConstants>$(DefineConstants);DETECTED</DefineConstants>
+  </PropertyGroup>
+    
+  <!-- 複数条件をつけられる -->
+  <PropertyGroup Condition="'$(Cat)'=='true'">
+    <DefineConstants>$(DefineConstants);CAT</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Dog)'=='true'">
+    <DefineConstants>$(DefineConstants);DOG</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\AnotherLibrary\AnotherLibrary.csproj" />
+  </ItemGroup>
+</Project>

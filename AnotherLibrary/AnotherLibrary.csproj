@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  
+  <!-- デバッグ構成 -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <!-- リリース構成 -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+    
+  <PropertyGroup Condition="'$(DevNum)'=='1'">
+    <DefineConstants>$(DefineConstants);DEV1</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DevNum)'=='2'">
+    <DefineConstants>$(DefineConstants);DEV2</DefineConstants>
+  </PropertyGroup>
+</Project>
