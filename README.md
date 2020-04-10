@@ -2,8 +2,9 @@
 DefineConstantsでどこまでできるのか
 
 ```
-chmod u+x ./run.sh 1
-chmod u+X ./run.sh 2
+chmod u+x ./run.sh
+./run.sh 1
+./run.sh 2
 ```
 
 ## Result
