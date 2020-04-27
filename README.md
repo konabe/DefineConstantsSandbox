@@ -55,3 +55,19 @@ Program Start (Release)
 MyClass#Print Called!
 RELEASE env connected!
 ```
+
+
+```
+msbuild ./DefineConstantsSandbox/DefineConstantsSandbox.csproj  /p:DevNum=1 /p:DOG=true /p:Configuration=Debug /t:Rebuild
+```
+とした場合、
+```
+shell % dotnet DefineConstantsSandbox/HOGEHOGE/netcoreapp3.1/DefineConstantsSandbox.dll
+Program Start (Debug)
+/p:DevNum=? detected!
+
+MyClass#Print Called!
+DEBUG env connecting...
+DEV1 env connected!
+
+```
